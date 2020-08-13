@@ -33,7 +33,7 @@ services:
           echo "."
           sleep 1
         done
-        exec oauth2-proxy --config /etc/oauth2-proxy.cfg --oidc-issuer-url=http://$$HOST/auth/realms/myrealm --login-url="http://$$HOST/auth/realms/myrealm/protocol/openid-connect/auth" --redeem-url="http://$$HOST/auth/realms/myrealm/protocol/openid-connect/token" --validate-url="http://$$HOST/auth/realms/myrealm/protocol/openid-connect/userinfo" --whitelist-domain="$$HOST:*"
+        exec oauth2-proxy --config /etc/oauth2-proxy.cfg --oidc-issuer-url="http://$$HOST/auth/realms/myrealm" --whitelist-domain="$$HOST:*"
     volumes:
     - ./oauth2-proxy.cfg:/etc/oauth2-proxy.cfg
     expose:
