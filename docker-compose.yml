@@ -10,8 +10,8 @@ services:
       KEYCLOAK_IMPORT: /realm-export.json
     volumes:
     - ./realm-export.json:/realm-export.json
-    ports:
-    - 8080:8080
+    expose:
+    - 8080
 
   oauth2:
     image: quay.io/oauth2-proxy/oauth2-proxy
@@ -25,6 +25,7 @@ services:
         until wget -q --spider keycloak:8080 2>/dev/null
         do
           echo "."
+          sleep 1
         done
         exec oauth2-proxy --config /etc/oauth2-proxy.cfg
     volumes:
