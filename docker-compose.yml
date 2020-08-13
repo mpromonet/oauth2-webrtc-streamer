@@ -26,7 +26,7 @@ services:
         do
           echo "."
         done
-        exec oauth2_proxy --config /etc/oauth2-proxy.cfg
+        exec oauth2-proxy --config /etc/oauth2-proxy.cfg
     volumes:
     - ./oauth2-proxy.cfg:/etc/oauth2-proxy.cfg
     expose:
