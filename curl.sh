@@ -1,1 +1,1 @@
-curl http://localhost:8080/auth/realms/myrealm/protocol/openid-connect/token -d "grant_type=client_credentials" -d "client_id=myclient" -d "client_secret=d2bd2790-6d93-425e-9f44-fb0be4b00d2f" -d "scope=openid" |jq 
+curl http://localhost/auth/realms/myrealm/protocol/openid-connect/token -d "grant_type=client_credentials" -d "client_id=myclient" -d "client_secret=d2bd2790-6d93-425e-9f44-fb0be4b00d2f" -d "scope=openid" |jq 

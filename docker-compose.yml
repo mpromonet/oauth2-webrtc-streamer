@@ -46,6 +46,7 @@ services:
     depends_on:
     - oauth2
     - webrtc      
+    - keycloak
     ports:
     - 80:80
     volumes:
