@@ -1,7 +1,7 @@
 # oauth2-webrtc-streamer
 
 ```
-export HOST=
+export HOST=$(hostname -I | cut -d' ' -f 1)
 
 docker-compose up
 ```
