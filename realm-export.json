@@ -2,6 +2,7 @@
   "id": "myrealm",
   "realm": "myrealm",
   "enabled": true,
+  "loginTheme": "custom.v2",
   "sslRequired": "external",
   "verifyEmail": false,
   "requiredCredentials": [

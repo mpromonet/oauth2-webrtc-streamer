@@ -1,0 +1,55 @@
+/* Overrides */
+@import url('./overrides.css');
+/* Defaults */
+
+#keycloak-bg {
+  margin: 0;
+  height: 100vh;
+}
+
+.pf-v5-c-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.pf-v5-c-login__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-template-areas: "main";
+  grid-template-columns: none;
+  width: 100%;
+  max-width: 28rem;
+  padding: 1rem;
+}
+
+.pf-v5-c-login__main {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+}
+
+#kc-header {
+  display: none;
+}
+
+.login-pf body {
+  background: #f4f4f4;
+  height: 100%;
+}
+
+div.kc-logo-text {
+  background-repeat: no-repeat;
+  height: 63px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+div.kc-logo-text span {
+  display: none;
+}
