@@ -34,7 +34,7 @@ services:
         condition: service_healthy
     command:
     - --config=/etc/oauth2-proxy.cfg
-    - --login-url=http://${SERVER_HOST:-localhost}/auth/realms/myrealm/protocol/openid-connect/auth
+    - --login-url=/auth/realms/myrealm/protocol/openid-connect/auth
     volumes:
     - ./oauth2-proxy.cfg:/etc/oauth2-proxy.cfg
     expose:
