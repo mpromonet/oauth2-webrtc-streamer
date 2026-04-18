@@ -4,7 +4,7 @@ services:
     image: quay.io/keycloak/keycloak:latest
     environment:
       DB_VENDOR: H2
-      KC_HOSTNAME: localhost
+      KC_HOSTNAME_STRICT: "false"
       KC_HTTP_RELATIVE_PATH: /auth
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
@@ -34,12 +34,11 @@ services:
         condition: service_healthy
     command:
     - --config=/etc/oauth2-proxy.cfg
+    - --login-url=http://${SERVER_HOST:-localhost}/auth/realms/myrealm/protocol/openid-connect/auth
     volumes:
     - ./oauth2-proxy.cfg:/etc/oauth2-proxy.cfg
     expose:
     - 4180
-    extra_hosts:
-    - "keycloak.localhost:host-gateway"
       
   nginx:
     image: nginx
@@ -51,8 +50,6 @@ services:
     - 80:80
     volumes:
     - ./nginx.conf:/etc/nginx/conf.d/default.conf   
-    extra_hosts:
-    - "keycloak.localhost:host-gateway"
 
   webrtc:
     image: mpromonet/webrtc-streamer
