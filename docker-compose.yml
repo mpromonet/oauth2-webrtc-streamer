@@ -53,6 +53,10 @@ services:
 
   webrtc:
     image: mpromonet/webrtc-streamer
+    command: ["-C", "config.json", "-R", "50000:50010"]
+    ports:
+      - 8000:8000
+      - 50000-50010:50000-50010/udp    
     expose:
     - 8000
       
