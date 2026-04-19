@@ -1,5 +1,5 @@
 # oauth2-webrtc-streamer
 
 ```
-docker-compose up
+docker compose up -d
 ```

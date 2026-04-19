@@ -18,8 +18,8 @@ services:
     # - './providers:/opt/keycloak/providers'
     # Development theme folder
     - './themes/custom-theme/theme:/opt/keycloak/themes'    
-    ports:
-    - 8080:8080
+    expose:
+    - 8080
     healthcheck:
       test: ["CMD-SHELL", "exec 3<>/dev/tcp/localhost/8080 && echo -e 'GET /auth/realms/master HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n' >&3 && cat <&3 | grep -q '200 OK'"]
       interval: 30s
@@ -53,9 +53,10 @@ services:
 
   webrtc:
     image: mpromonet/webrtc-streamer
-    command: ["-C", "config.json", "-R", "50000:50010"]
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+    command: ["-C", "config.json", "-R", "50000:50010", "-e", "host.docker.internal"]
     ports:
-      - 8000:8000
       - 50000-50010:50000-50010/udp    
     expose:
     - 8000
