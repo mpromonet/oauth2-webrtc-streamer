@@ -55,7 +55,7 @@ services:
     image: mpromonet/webrtc-streamer
     extra_hosts:
     - "host.docker.internal:host-gateway"
-    command: ["-C", "config.json", "-R", "50000:50010", "-e", "host.docker.internal"]
+    command: ["-C", "config.json", "-R", "50000:50010", "-e", "${HOST}"]
     ports:
       - 50000-50010:50000-50010/udp    
     expose:
